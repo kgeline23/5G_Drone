@@ -25,7 +25,7 @@ namespace _5GDrone
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
-        private DroneClient droneClient;
+        //private DroneClient droneClient;
         private Client client;
 
         private ThicknessAnimation slideAnimation;
@@ -48,7 +48,7 @@ namespace _5GDrone
             //    this.battleshipClient = new BattleshipClient(ClientSettings.Ip, ClientSettings.Port, this);
             //else
             //    this.battleshipClient.SetMessageReceiver(this);
-            if (droneClient != null)
+            if (client != null)
                 MessageBox.Show(" DroneClient is not null");           
 
             this.slideAnimation = new ThicknessAnimation();

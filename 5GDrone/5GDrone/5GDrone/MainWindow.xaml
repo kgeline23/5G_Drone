@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_5GDrone"
         mc:Ignorable="d"
-        Title="MainWindow" Height="897.6" Width="1670.4">
+        Title="MainWindow" Height="700" Width="1000">
     <Grid Background="#FF1E1E1E">
-        <Button x:Name="BtnTakeoff" Content="TAKE-OFF" HorizontalAlignment="Left" Margin="61,494,0,0" VerticalAlignment="Top" Width="286" Height="62" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnTakeoff_Click"/>
-        <Button x:Name="BtnLand" Content="LAND" HorizontalAlignment="Left" Margin="61,590,0,0" VerticalAlignment="Top" Width="286" Height="62" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnLand_Click"/>
-        <Button x:Name="emergencyBtn" Content="EMERGENCY STOP" HorizontalAlignment="Left" Margin="524,144,0,0" VerticalAlignment="Top" Width="529" Height="74" Click="BtnEmergency_Click"/>
+        <Button x:Name="BtnTakeoff" Content="TAKE-OFF" HorizontalAlignment="Left" Margin="61,428,0,0" VerticalAlignment="Top" Width="286" Height="62" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnTakeoff_Click"/>
+        <Button x:Name="BtnLand" Content="LAND" HorizontalAlignment="Left" Margin="61,542,0,0" VerticalAlignment="Top" Width="286" Height="62" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnLand_Click"/>
+        <Button x:Name="emergencyBtn" Content="EMERGENCY STOP" HorizontalAlignment="Left" Margin="239,75,0,0" VerticalAlignment="Top" Width="529" Height="74" Click="BtnEmergency_Click"/>
 
     </Grid>
 </Window>

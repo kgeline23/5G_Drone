@@ -4,6 +4,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Windows;
+
 
 namespace Networking.Client
 {
@@ -76,6 +78,13 @@ namespace Networking.Client
                 this.stream.Close();
                 Console.WriteLine($"Client disconnected on {this.host} using port {this.port}\n");
             }
+        }
+
+        public void OnDisconnect()
+        {
+            //MessageBox.Show("Server closed application wil be closed!");
+            Console.WriteLine("Server closed application wil be closed!");
+            Environment.Exit(0);
         }
 
         public void Transmit(string command)
