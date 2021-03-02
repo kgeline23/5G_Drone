@@ -1,0 +1,18 @@
+﻿<Window x:Class="_5GDrone.ConnectScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5GDrone"
+        mc:Ignorable="d"
+        Title="ConnectScreen" Height="450" Width="800">
+    <Grid Background="#FF868B93">
+        <Button x:Name="connectionBtn" Content="CONNECT" HorizontalAlignment="Left" Margin="320,251,0,0" VerticalAlignment="Top" Width="151" Height="37" Click="connectionBtn_Click"/>
+        <TextBox x:Name="ipTxtBox" HorizontalAlignment="Left" Height="23" Margin="320,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="portTxtBox" HorizontalAlignment="Left" Height="23" Margin="320,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
+        <Label Content="IP Adress" HorizontalAlignment="Left" Margin="320,100,0,0" VerticalAlignment="Top" Width="151"/>
+        <Label Content="Port" HorizontalAlignment="Left" Margin="320,154,0,0" VerticalAlignment="Top" Width="151"/>
+        <Label x:Name="errorLabel" Content="" HorizontalAlignment="Left" Margin="238,214,0,0" VerticalAlignment="Top" Width="398" Foreground="Red"/>
+
+    </Grid>
+</Window>
