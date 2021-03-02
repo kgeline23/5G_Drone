@@ -1077,11 +1077,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\the5g\\Desktop\\5GDrone\\5GDrone\\Networking\\Networking.csproj",
+      "projectUniqueName": "C:\\Users\\the5g\\Documents\\GitHub\\5G_Drone\\5GDrone\\5GDrone\\Networking\\Networking.csproj",
       "projectName": "Networking",
-      "projectPath": "C:\\Users\\the5g\\Desktop\\5GDrone\\5GDrone\\Networking\\Networking.csproj",
+      "projectPath": "C:\\Users\\the5g\\Documents\\GitHub\\5G_Drone\\5GDrone\\5GDrone\\Networking\\Networking.csproj",
       "packagesPath": "C:\\Users\\the5g\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\the5g\\Desktop\\5GDrone\\5GDrone\\Networking\\obj\\",
+      "outputPath": "C:\\Users\\the5g\\Documents\\GitHub\\5G_Drone\\5GDrone\\5GDrone\\Networking\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\the5g\\AppData\\Roaming\\NuGet\\NuGet.Config",
