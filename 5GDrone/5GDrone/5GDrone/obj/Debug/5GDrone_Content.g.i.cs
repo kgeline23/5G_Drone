@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ps_drone.py")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pythonserver.py")]
 
 
