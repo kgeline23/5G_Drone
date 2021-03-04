@@ -77,16 +77,10 @@ C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\bin\Debug\Micro
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\bin\Debug\Microsoft.Scripting.xml
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\bin\Debug\Microsoft.Scripting.Metadata.xml
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone.csprojAssemblyReference.cache
-C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\AuthorizationWindow.g.cs
-C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\ConnectScreen.g.cs
-C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\MainWindow.g.cs
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\App.g.cs
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone_Content.g.cs
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone_MarkupCompile.cache
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone_MarkupCompile.lref
-C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\AuthorizationWindow.baml
-C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\ConnectScreen.baml
-C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\MainWindow.baml
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone.g.resources
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\_5GDrone.Properties.Resources.resources
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone.csproj.GenerateResource.cache
@@ -94,3 +88,9 @@ C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDro
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone.csproj.CopyComplete
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone.exe
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\5GDrone.pdb
+C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\ConnectionWindow.g.cs
+C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\ControlWindow.g.cs
+C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\StartupWindow.g.cs
+C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\ConnectionWindow.baml
+C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\ControlWindow.baml
+C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\obj\Debug\StartupWindow.baml

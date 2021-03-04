@@ -78,6 +78,7 @@ namespace Networking.Client
                 this.stream.Close();
                 Console.WriteLine($"Client disconnected on {this.host} using port {this.port}\n");
             }
+            //exit() in python
         }
 
         public void OnDisconnect()

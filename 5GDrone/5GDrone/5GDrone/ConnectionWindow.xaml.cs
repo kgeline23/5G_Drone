@@ -21,9 +21,9 @@ using Networking.Client;
 namespace _5GDrone
 {
     /// <summary>
-    /// Interaction logic for AuthorizationWindow.xaml
+    /// Interaction logic for ConnectionWindow.xaml
     /// </summary>
-    public partial class AuthorizationWindow : Window
+    public partial class ConnectionWindow : Window
     {
         //private DroneClient droneClient;
         private Client client;
@@ -33,21 +33,10 @@ namespace _5GDrone
 
         private bool isRegistering;
 
-        public AuthorizationWindow(Client client)
+        public ConnectionWindow(Client client)
         {
-            InitializeComponent();
+            InitializeComponent();              
 
-            
-            //this will exect a python file
-            Microsoft.Scripting.Hosting.ScriptEngine pythonEngine = IronPython.Hosting.Python.CreateEngine();
-            Microsoft.Scripting.Hosting.ScriptSource pythonScript = pythonEngine.CreateScriptSourceFromFile("..\\..\\PythonServer.py");
-            pythonScript.Execute();
-            
-
-            //if (battleshipClient == null)
-            //    this.battleshipClient = new BattleshipClient(ClientSettings.Ip, ClientSettings.Port, this);
-            //else
-            //    this.battleshipClient.SetMessageReceiver(this);
             if (client != null)
                 MessageBox.Show(" DroneClient is not null");           
 
@@ -60,7 +49,7 @@ namespace _5GDrone
             this.isRegistering = false;
         }
 
-        public AuthorizationWindow()
+        public ConnectionWindow()
             : this(null) { }
 
         private void Connect_Click(object sender, RoutedEventArgs e)
@@ -80,7 +69,6 @@ namespace _5GDrone
                 else
                 {
                     stk_Connect.Visibility = Visibility.Collapsed;
-                    stk_Content.Visibility = Visibility.Visible;
 
                     MainWindow main = new MainWindow(this.client);
                     main.Show();
@@ -114,7 +102,7 @@ namespace _5GDrone
                     this.slideAnimation.From = new Thickness(0, -600, 0, 0);
                     this.slideAnimation.To = new Thickness(0, 0, 0, 0);
 
-                    storyBoard.Begin(stk_Content);
+                    //storyBoard.Begin(stk_Content);
                     this.isRegistering = false;
                 }
             }));
@@ -129,7 +117,7 @@ namespace _5GDrone
                     this.slideAnimation.From = new Thickness(0, 0, 0, 0);
                     this.slideAnimation.To = new Thickness(0, -600, 0, 0);
 
-                    storyBoard.Begin(stk_Content);
+                    //storyBoard.Begin(stk_Content);
                     this.isRegistering = true;
                 }
             }));

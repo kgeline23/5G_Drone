@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\the5g\Documents\GitHub\5G_Drone\5GDrone\5GDrone\5GDrone\App.xaml
-2-262298438
+3-1016753876
 1-1092308948
-91328613831
+10-1272820043
 23-1920330248
-AuthorizationWindow.xaml;MainWindow.xaml;
+ConnectionWindow.xaml;ControlWindow.xaml;StartupWindow.xaml;
 
 False
 
