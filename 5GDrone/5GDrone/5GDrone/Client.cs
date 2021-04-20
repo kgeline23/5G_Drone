@@ -4,11 +4,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Threading;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-//using _5GDrone;
+using Networking.Client;
 
-namespace Networking.Client
+namespace _5GDrone
 {
     public class Client : IClientConnector
     {
@@ -23,8 +21,6 @@ namespace Networking.Client
         private NetworkStream stream;
         string bmpSensor = "BMP", ultraSensor = "ULT1";         //sensor identification string for transfered data
         int minDistance = 30;                                   //min distance from drone to object (for ultasonic sensor)
-
-
         public Client(string ip, int port)
         {
             this.isReady = IPAddress.TryParse(ip, out host);    //check if given ip is in correct format
@@ -86,76 +82,80 @@ namespace Networking.Client
             this.stream.Write(bytesToSend, 0, bytesToSend.Length);
         }
 
-
         public void startSensors()
         {
 
-            Transmit("HEIGHT");
-            Transmit("DISTANCE");
-            /*
-            Dispatcher.Invoke(new Action(() => { lb.Content = "Irantha"; }));
-
-
-            Func<ControlWindow> fnc = delegate () { return Application.Current.Windows.Cast<Window>().FirstOrDefault(wnd => wnd is ControlWindow) as ControlWindow; };
-            MainWindow mnwnd = Application.Current.Dispatcher.Invoke(fnc) as MainWindow;
-            mnwnd.status_lable.Dispatcher.Invoke(new Action(() => mnwnd.status_lable.Content = "Irantha signed in"));
-            */
-
-
             byte[] data = new byte[client.ReceiveBufferSize];
+            double value;
+
             while (true)
             {
-                int bytesRead = stream.Read(data, 0, client.ReceiveBufferSize);
-                string response = Convert.ToString(Encoding.ASCII.GetString(data, 0, bytesRead));           //read the transfered byte array and convert to string
-                double value;           
+                Transmit("BMP");
+                int bytesReadB = stream.Read(data, 0, client.ReceiveBufferSize);
+                string responseB = Convert.ToString(Encoding.ASCII.GetString(data, 0, bytesReadB));           //read the transfered byte array and convert to string
 
-                if (response.Contains(bmpSensor))                                                           //check was sensor value was sent
+                if (responseB.Contains(bmpSensor))                                                           //check was sensor value was sent
                 {
                     //Transmit("HOVER")
-                    value = Convert.ToDouble(response.Replace(bmpSensor, "")) / 100;                        //remove the identification string. During the transfer the decimal is removed therefore divided by 100
+                    value = Convert.ToDouble(responseB.Replace(bmpSensor, "")) / 100;                        //remove the identification string. During the transfer the decimal is removed therefore divided by 100
                     Console.WriteLine(bmpSensor + ": " + value);
-                    setHeight(value);
+                    checkHeight(value);
                 }
-                else if (response.Contains(ultraSensor))
+
+                Transmit("ULT");
+                int bytesReadU = stream.Read(data, 0, client.ReceiveBufferSize);
+                string responseU = Convert.ToString(Encoding.ASCII.GetString(data, 0, bytesReadU));           //read the transfered byte array and convert to string
+                if (responseU.Contains(ultraSensor))
                 {
                     //Transmit("HOVER")
-                    value = Convert.ToDouble(response.Replace(ultraSensor, "")) / 100;
+                    value = Convert.ToDouble(responseU.Replace(ultraSensor, "")) / 100;
                     Console.WriteLine(ultraSensor + ": " + value);
-                    setDistance(value);
+                    checkDistance(value);
                 }
+                Thread.Sleep(750); //sleep for 0.75seconds
             }
 
         }
+        
+        
+        ControlWindow ctrlWin = new ControlWindow();
 
-        //starts the barometer, by sending a command and listening for a reponse, reading is in meter
-        public string setHeight(double value)
+
+        //Check if the obtained Barometer value is in range, gives out corresponding replies, value is in meters
+        public void checkHeight(double value)
         {
             if (value < min)
             {
                 //Transmit("HOVER")
-                return value + "m \n You are below the min.";
+                ctrlWin.lbHeight.Content = value + "m \n You are below the min.";
+                test();
             }
             else if(value > max)
             {
                 //Transmit("HOVER")
-                return value + "m \n You are above the max.";
+                ctrlWin.lbHeight.Content = value + "m \n You are above the max.";
             }
             else
-                return value.ToString();
+                ctrlWin.lbHeight.Content = value.ToString();
         }
 
-            
-        //start the ultrasonic sensor, by sending a command and listening for a reponse, reading is in cm
-        public string setDistance(double value) 
+        //just to test if it will call the changeLableHeight method
+        public void test()
+        {
+            ctrlWin.changeLableHeight("test test test test test");
+
+        }
+
+        //Check if the obtained Ultrasonic value is in range, gives out corresponding replies, value is in cm
+        public void checkDistance(double value) 
         {
             if (value <= minDistance)
             {
                 //Transmit("HOVER")
 
-                return "Watch out too close!! " + value + "cm";
+                ctrlWin.lbDistance.Content = "Watch out too close!! " + value + "cm";
+               
             }
-            else
-                return value.ToString();
         }
 
 

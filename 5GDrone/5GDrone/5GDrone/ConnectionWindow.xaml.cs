@@ -1,6 +1,4 @@
-﻿using _5GDrone.Net;
-using Networking;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Networking.Client;
+//using Networking.Client;
 
 
 namespace _5GDrone
@@ -55,7 +53,7 @@ namespace _5GDrone
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
 
-
+            lbl_Error.Content = "";
             if (!String.IsNullOrEmpty(txb_Ip.Text) || !String.IsNullOrEmpty(txb_Port.Text))                 
             {
                 //this.droneClient = new DroneClient(txb_Ip.Text, int.Parse(txb_Port.Text));
@@ -70,8 +68,9 @@ namespace _5GDrone
                 {
                     stk_Connect.Visibility = Visibility.Collapsed;
 
-                    MainWindow main = new MainWindow(this.client);
-                    main.Show();
+
+                    HeightRangeWindow range = new HeightRangeWindow(this.client);
+                    range.Show();
                     this.Close();
                     
                 }

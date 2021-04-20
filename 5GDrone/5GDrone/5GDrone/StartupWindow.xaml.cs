@@ -82,7 +82,7 @@ namespace _5GDrone
                         // Console.WriteLine(result);
                         //Console.ReadKey();
             */
-
+            /*
             //Basic engine to run python script. - Part1
             ScriptEngine engine = Python.CreateEngine();
             string pythonScriptPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));

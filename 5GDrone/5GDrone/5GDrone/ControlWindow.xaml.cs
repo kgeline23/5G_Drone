@@ -1,5 +1,4 @@
-﻿using _5GDrone.Net;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,27 +12,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Networking.Client;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace _5GDrone
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ControlWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ControlWindow : Window
     {
 
-        public DroneClient droneClient;
         public Client client;
         private string msgSend;
+        private delegate void getContinousCallback();
 
-        public MainWindow(Client client)
+        public ControlWindow(Client client)
         {
             InitializeComponent();
-            //this.droneClient = droneClient;
+
             this.client = client;
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+/*
+            //start a background threat to read barometer values
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                getContinousMeasurements();
+            }).Start();
+*/
         }
+
+        public ControlWindow()
+        {
+            InitializeComponent();
+        }
+
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
@@ -107,7 +122,8 @@ namespace _5GDrone
         {
             msgSend = "TAKEOFF";
 
-            client.Transmit(msgSend);
+            //client.Transmit(msgSend);
+            Console.WriteLine("Clickeddddddddddddddddddddd");
         }
 
         private void BtnLand_Click(object sender, RoutedEventArgs e)
@@ -123,5 +139,100 @@ namespace _5GDrone
 
             client.Transmit(msgSend);
         }
+
+
+        //reference video for background threading https://www.youtube.com/watch?v=mcxERGerWMk
+        private void getContinousMeasurements()
+        {
+            try
+            {
+                while (true)
+                {
+                    //int time = 750; // 0.75 second
+                    Dispatcher.BeginInvoke(new getContinousCallback(client.startSensors), DispatcherPriority.Render);
+
+                    //Thread.Sleep(time);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void changeLableHeight(string text)
+        {
+            lbHeight.Content = text;
+        }
+
+        public void changeLableDistance(string text)
+        {
+            lbDistance.Content = text;
+        }
+        
+        //Control buttons
+        private void BtnUp_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "UP";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnDown_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "DOWN";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnRight_Turn_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "TURNRIGHT";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnLeft_Turn_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "TURNLEFT";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnForward_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "FORWARDS";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnBackwards_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "bACKWARDS";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnLeft_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "MOVELEFT";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnRight_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "MOVERIGHT";
+            client.Transmit(msgSend);
+        }
+
+        private void BtnHover_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "HOVER";
+            //client.Transmit(msgSend);
+            MessageBox.Show("Clicked");
+            //client.test();
+        }
+
+        private void BtnStop_Click(object sender, RoutedEventArgs e)
+        {
+            msgSend = "STOP";
+            //client.Transmit(msgSend);
+        }
+
+
     }
 }

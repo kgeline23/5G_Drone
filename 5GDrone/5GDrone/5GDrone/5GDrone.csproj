@@ -7,7 +7,7 @@
     <ProjectGuid>{39B1A2E6-2163-40A5-8007-4A221DB6F5C3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>_5GDrone</RootNamespace>
-    <AssemblyName>5GDrone</AssemblyName>
+    <AssemblyName>_5GDrone</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -58,7 +58,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,10 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Client.cs" />
     <Compile Include="Container.cs" />
-    <Compile Include="Net\DroneClient.cs" />
-    <Compile Include="StartupWindow.xaml.cs">
-      <DependentUpon>StartupWindow.xaml</DependentUpon>
+    <Compile Include="HeightRangeWindow.xaml.cs">
+      <DependentUpon>HeightRangeWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="ConnectionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -99,7 +101,7 @@
       <DependentUpon>ControlWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StartupWindow.xaml">
+    <Page Include="HeightRangeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,13 +134,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PythonServer.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Networking\Networking.csproj">
       <Project>{fc880ed9-3b26-4f8d-94a6-6a9ab2b1fcb7}</Project>
       <Name>Networking</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PythonServer.py" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

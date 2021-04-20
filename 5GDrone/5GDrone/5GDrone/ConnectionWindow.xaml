@@ -12,8 +12,13 @@
             <Label Content="Client" FontSize="16" Foreground="White" HorizontalContentAlignment="Center" Margin="5,5,5,5"></Label>
             <Label x:Name="lbl_Error" FontSize="12" Foreground="Red" HorizontalContentAlignment="Center" Visibility="Hidden"></Label>
             <Label Content="Ip:" FontSize="14" Foreground="White" Margin="5,5,5,5"></Label>
-            <TextBox x:Name="txb_Ip" Text="192.168.0.12"  FontSize="14" Margin="5,5,5,5" Foreground="White" Background="#FF2D2D30" BorderBrush="#FF3E3E42" MaxLength="20"></TextBox>
-            <!-- "10.57.55.125" -->
+            <!--5Hub-->
+            <!--<TextBox x:Name="txb_Ip" Text="10.57.55.46"  FontSize="14" Margin="5,5,5,5" Foreground="White" Background="#FF2D2D30" BorderBrush="#FF3E3E42" MaxLength="20"></TextBox>-->
+            <!-- DE -->
+            <TextBox x:Name="txb_Ip" Text="192.168.0.16"  FontSize="14" Margin="5,5,5,5" Foreground="White" Background="#FF2D2D30" BorderBrush="#FF3E3E42" MaxLength="20"></TextBox>
+            <!-- NL -->
+            <!--<TextBox x:Name="txb_Ip" Text="192.168.178.109"  FontSize="14" Margin="5,5,5,5" Foreground="White" Background="#FF2D2D30" BorderBrush="#FF3E3E42" MaxLength="20"></TextBox>-->
+
             <Label Content="Port:" FontSize="14" Foreground="White" Margin="5,5,5,5"></Label>
             <TextBox x:Name="txb_Port" Text="3003" FontSize="14" Margin="5,5,5,5" Foreground="White" Background="#FF2D2D30" BorderBrush="#FF3E3E42" MaxLength="20"></TextBox>
             <Button x:Name="btn_Connect" Content="Connect" FontSize="14" Margin="5,10,5,10" Foreground="White" Background="#FF2D2D2F" BorderBrush="#FF2D2D30" Width="400" Click="Connect_Click"></Button>
