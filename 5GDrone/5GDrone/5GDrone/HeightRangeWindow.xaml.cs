@@ -36,6 +36,7 @@ namespace _5GDrone
             client.assignRange(Convert.ToDouble( tbMin.Text), Convert.ToDouble(tbMax.Text));
 
             ControlWindow main = new ControlWindow(this.client);
+            this.client.setWindow(main);
             main.Show();
             this.Close();
         }

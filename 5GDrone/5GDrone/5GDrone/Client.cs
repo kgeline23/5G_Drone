@@ -21,11 +21,19 @@ namespace _5GDrone
         private NetworkStream stream;
         string bmpSensor = "BMP", ultraSensor = "ULT1";         //sensor identification string for transfered data
         int minDistance = 30;                                   //min distance from drone to object (for ultasonic sensor)
+
+        ControlWindow ctrlWin;
+
         public Client(string ip, int port)
         {
             this.isReady = IPAddress.TryParse(ip, out host);    //check if given ip is in correct format
             this.isConnected = false;
             this.port = port;
+        }
+
+        public void setWindow(ControlWindow window)
+        {
+            this.ctrlWin = window;
         }
 
         public bool Connect()
@@ -118,7 +126,6 @@ namespace _5GDrone
         }
         
         
-        ControlWindow ctrlWin = new ControlWindow();
 
 
         //Check if the obtained Barometer value is in range, gives out corresponding replies, value is in meters
