@@ -1,13 +1,14 @@
-import socket
+tyimport socket
 import threading, select, socket, time, tempfile, multiprocessing, struct, os, sys
 import ps_drone
+import bmp_library as bmpsensor #starts the sensors
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.bind(('10.57.55.125', 3003))
-#s.bind(('192.168.1.5', 3003))
-print("here!")
-
+#s.bind(('10.57.55.125', 3003))
+s.bind(('192.168.0.12', 3003))
 s.listen(1)
+print("here ")
+
 conn, addr = s.accept()
 print("Connected!")
 
@@ -46,8 +47,22 @@ if key==" ":
     drone.groundVideo(ground)                       #Toggle between front- and groundcamera.
 elif key and key != " ": stop = True
 
+
+def getHeight():
+    temp, pressure, altitude = bmpsensor.readBmp180()
+    intAlt = bmpsensor.getInitialAlt()
+    temp = altitude - intAlt
+    height = str(round(temp, 2))
+    print("Height is ", height )
+    print("\n")
+    ba = bytes(height, 'utf8')
+    conn.send(ba)
+
 while 1:
-    data = conn.recv(1024)
+    
+    #####
+    data = conn.recv(1024).decode("utf-8")
+      print("\n")
     if not data:
         break
     #conn.sendall(data)
@@ -69,6 +84,7 @@ while 1:
     elif data =="DOWN":          drone.moveDown()
     elif data =="HOVER":         drone.hover()
     elif data == "STOP":         drone.stop()
+    elif cmd == "HEIGHT":        getHeight()
 
 
 
