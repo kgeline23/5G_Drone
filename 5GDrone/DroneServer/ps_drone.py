@@ -668,7 +668,7 @@ class Drone(object):
 		except:		pass
 		if self.showCommands:
 			if msg.count("COMWDG") < 1:	print(msg)
-		self.__sock.sendto(msg.encode(), (self.DroneIP, self.CmdPort))
+		self.__sock.sendto(msg, (self.DroneIP, self.CmdPort))
 		self.__keepalive = threading.Timer(0.1, self.__heartbeat)
 		self.__keepalive.start()
 

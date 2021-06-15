@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -34,14 +33,14 @@ namespace _5GDrone
 
             this.client = client;
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
-/*
+
             //start a background threat to read barometer values
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
                 getContinousMeasurements();
             }).Start();
-*/
+
         }
 
         public ControlWindow()
@@ -148,10 +147,11 @@ namespace _5GDrone
             {
                 while (true)
                 {
-                    //int time = 750; // 0.75 second
-                    Dispatcher.BeginInvoke(new getContinousCallback(client.startSensors), DispatcherPriority.Render);
+                    int time = 500; // 0.5 second
+                    Dispatcher.BeginInvoke(new getContinousCallback(client.getHeight), DispatcherPriority.Render);
+                    Dispatcher.BeginInvoke(new getContinousCallback(client.getDistance), DispatcherPriority.Render);
 
-                    //Thread.Sleep(time);
+                    Thread.Sleep(time);
                 }
             }
             catch (System.Exception ex)
@@ -224,7 +224,6 @@ namespace _5GDrone
             msgSend = "HOVER";
             //client.Transmit(msgSend);
             MessageBox.Show("Clicked");
-            //client.test();
         }
 
         private void BtnStop_Click(object sender, RoutedEventArgs e)

@@ -106,9 +106,9 @@ def readBmp180(addr=0x77):
   altitude = 44330.0 * (1.0 - pow(pressure / 101325.0, (1.0/5.255)))
   altitude = round(altitude,2)
   
-  #global intAlt
-  #if intAlt == None:
-  #    intAlt = altitude
+  global intAlt
+  if intAlt == None:
+      intAlt = altitude
   #return (temperature,pressure,altitude)
   return altitude
 
