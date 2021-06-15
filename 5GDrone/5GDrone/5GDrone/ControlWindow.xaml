@@ -11,20 +11,36 @@
         <Button x:Name="BtnStop" FontSize="18" Content="STOP" HorizontalAlignment="Left" Margin="485,567,0,0" VerticalAlignment="Top" Width="148" Height="62" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnStop_Click"/>
         <Button x:Name="emergencyBtn" Content="EMERGENCY STOP" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="681,567,0,0" VerticalAlignment="Top" Width="286" Height="62" Background="#FF6969" Click="BtnEmergency_Click"/>
         <Label x:Name="lbHeight" HorizontalAlignment="Left" Margin="623,80,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="344" Height="74" Content="{x:Null}"/>
-        <Button x:Name="BtnUp"     FontFamily="Segoe UI Symbol" Content="&#xE110;" FontSize="18" HorizontalAlignment="Left" Margin="176,240,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnUp_Click"/>
-        <Button x:Name="BtnLeft_Turn" FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE112;" HorizontalAlignment="Left" Margin="116,300,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnLeft_Click"/>
-        <Button x:Name="BtnRight_Turn" FontSize="18" FontFamily="Segoe UI Symbol" Content="----" HorizontalAlignment="Left" Margin="236,300,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnRight_Click"/>
-        <Button x:Name="BtnDown"   FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE1FD;" HorizontalAlignment="Left" Margin="176,360,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnDown_Click"/>
-        <Button x:Name="BtnFoward" FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE110;" HorizontalAlignment="Left" Margin="677,240,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnForward_Click"/>
-        <Button x:Name="BtnLeft"   FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE112;" HorizontalAlignment="Left" Margin="617,300,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnLeft_Click"/>
-        <Button x:Name="BtnBack"   FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE1FD;" HorizontalAlignment="Left" Margin="677,360,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnBackwards_Click"/>
-        <Button x:Name="BtnRight"  FontSize="18" FontFamily="Segoe UI Symbol" Content="&#x2192;" HorizontalAlignment="Left" Margin="737,300,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnRight_Click"/>
-        <Label x:Name="lb_y_axis" HorizontalAlignment="Left" Margin="147,441,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="120" Height="40" Content="y-axis control"/>
-        <Label x:Name="lb_x_axis" HorizontalAlignment="Left" Margin="649,441,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="120" Height="40" Content="x-axis control"/>
+        <Button x:Name="BtnUp"     FontFamily="Segoe UI Symbol" Content="&#xE110;" FontSize="18" HorizontalAlignment="Left" Margin="192,174,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnUp_Click"/>
+        <Button x:Name="BtnLeft_Turn" FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE112;" HorizontalAlignment="Left" Margin="132,234,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnLeft_Click"/>
+        <Button x:Name="BtnRight_Turn" FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE112;" HorizontalAlignment="Left" Margin="252,234,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnRight_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="BtnDown"   FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE1FD;" HorizontalAlignment="Left" Margin="192,294,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnDown_Click"/>
+        <Button x:Name="BtnFoward" FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE110;" HorizontalAlignment="Left" Margin="693,174,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnForward_Click"/>
+        <Button x:Name="BtnLeft"   FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE112;" HorizontalAlignment="Left" Margin="633,234,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnLeft_Click"/>
+        <Button x:Name="BtnBack"   FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE1FD;" HorizontalAlignment="Left" Margin="693,294,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnBackwards_Click"/>
+        <Button x:Name="BtnRight"  FontSize="18" FontFamily="Segoe UI Symbol" Content="&#xE112;" HorizontalAlignment="Left" Margin="753,234,0,0" VerticalAlignment="Top" Width="60" Height="60" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnRight_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label x:Name="lb_y_axis" HorizontalAlignment="Left" Margin="163,375,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="120" Height="40" Content="y-axis control"/>
+        <Label x:Name="lb_x_axis" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Width="120" Height="40" Content="x-axis control"/>
         <Button x:Name="BtnHover" FontSize="18" Content="HOVER" HorizontalAlignment="Left" Margin="347,567,0,0" VerticalAlignment="Top" Width="138" Height="62" Background="#FF2D2D30" BorderBrush="White" Foreground="White" Click="BtnHover_Click"/>
         <Label x:Name="lbDistance" HorizontalAlignment="Left" Margin="48,80,0,0" VerticalAlignment="Top" Foreground="#FF6969" FontSize="18" Width="344" Height="74" Content="{x:Null}"/>
-
-
 
     </Grid>
 </Window>
