@@ -34,12 +34,14 @@ namespace _5GDrone
             this.client = client;
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
 
+            /*
             //start a background threat to read barometer values
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
                 getContinousMeasurements();
             }).Start();
+            */
 
         }
 
@@ -121,8 +123,8 @@ namespace _5GDrone
         {
             msgSend = "TAKEOFF";
 
-            //client.Transmit(msgSend);
-            Console.WriteLine("Clickeddddddddddddddddddddd");
+            client.Transmit(msgSend);
+            Console.WriteLine("Clicked");
         }
 
         private void BtnLand_Click(object sender, RoutedEventArgs e)
