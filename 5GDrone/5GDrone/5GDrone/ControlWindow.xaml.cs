@@ -145,7 +145,6 @@ namespace _5GDrone
             msgSend = "TAKEOFF";
 
             client.Transmit(msgSend);
-            Console.WriteLine("Clicked");
         }
 
         private void BtnLand_Click(object sender, RoutedEventArgs e)

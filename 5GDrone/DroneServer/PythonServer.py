@@ -1,8 +1,8 @@
-import socket, struct
+import socket, struct, traceback, sys
 import threading, select, time, tempfile, multiprocessing, struct, os, sys
 import ps_drone
 import bmp_library as bmpsensor #starts the sensors
-import ultra_library.py
+import ultra_library
 import RPi.GPIO as GPIO
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -28,27 +28,6 @@ time.sleep(0.5)                                         # Give it some time to a
 
 CDC = drone.ConfigDataCount
 drone.setConfigAllID()                                  #Go to multiconfiguration-mode
-drone.sdVideo()                                         #Choose lower resolution
-drone.frontCam()                                        #Choose front view
-#while CDC==drone.ConfigDataCount: time.sleep(0.001)    #Wait until it is done
-#drone.startVideo()                                     #Start video-function
-#drone.showVideo()                                      #Display the video
-
-
-print("<space> to toggle front- and groundcamera, any other key to stop")
-IMC = drone.VideoImageCount                             #Number of encoded videoframes
-stop = False
-ground = False                                          #To toggle front- and groundcamera
-#while drone.VideoImageCount==IMC: time.sleep(0.01)     #Wait for next image
-IMC = drone.VideoImageCount                             #Number of encoded videoframes
-key = drone.getKey()
-if key==" ":        
-    if ground:
-        ground = False
-    else:                                           
-        ground = True
-    drone.groundVideo(ground)                           #Toggle between front- and groundcamera.
-elif key and key != " ": stop = True
 
 
 #this method is used to obtain the barometer(Pressure sensor) readings
@@ -74,7 +53,7 @@ while 1:
     try:
         #####
         data = conn.recv(1024).decode("utf-8")          #receive message from Controller
-          print("\n")
+        print("\n")
         if not data:
             break
         #conn.sendall(data)
@@ -99,7 +78,7 @@ while 1:
         elif data =="DOWN":          drone.moveDown()
         elif data =="HOVER":         drone.hover()
         elif data == "STOP":         drone.stop()
-        elif cmd == "HEIGHT":        getHeight()
+        elif data == "HEIGHT":        getHeight()
     except Exception:
         print(traceback.format_exc())
     except KeyboardInterrupt:

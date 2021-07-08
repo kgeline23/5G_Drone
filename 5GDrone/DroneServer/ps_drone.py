@@ -18,7 +18,7 @@
 #   Visit www.playsheep.de/drone or see the PS-Drone-API-documentation for an abstract from the Artistic License 2.0.
 
 import threading, select, socket, time, tempfile, multiprocessing, struct, os, sys
-import _thread, signal, subprocess
+import thread, signal, subprocess
 
 sys.path.append('/usr/local/lib/python3.9/site-packages')
 
