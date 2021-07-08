@@ -14,6 +14,9 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Threading;
+using System.IO;
+using LibVLCSharp.Shared;
+using MediaPlayer = LibVLCSharp.Shared.MediaPlayer;
 
 namespace _5GDrone
 {
@@ -26,23 +29,41 @@ namespace _5GDrone
         public Client client;
         private string msgSend;
         private delegate void getContinousCallback();
+        //const string video_url = "rtsp://10.1.1.11:8554/stream";
+        const string video_url = "rtsp://192.168.178.15:8554/stream";
+        readonly LibVLC _libvlc;
 
         public ControlWindow(Client client)
         {
             InitializeComponent();
+            Core.Initialize();
+
 
             this.client = client;
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
 
-            /*
-            //start a background threat to read barometer values
+            
+            //start a background threat to read sensor values
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
                 getContinousMeasurements();
             }).Start();
-            */
+            
 
+            //stream vlc
+
+            _libvlc = new LibVLC();
+            vlcPlayer.MediaPlayer = new MediaPlayer(_libvlc);
+            var m = new Media(_libvlc, video_url, FromType.FromLocation);
+            //The next step is to set the corresponding parameters and play the life of rtsp stream. There is a big gap between setting and not setting. You can comment the code to experience
+            m.AddOption(":rtsp-tcp");
+            m.AddOption(":clock-synchro=0");
+            m.AddOption(":live-caching=0");
+            m.AddOption(":network-caching=333");
+            m.AddOption(":file-caching=0");
+            m.AddOption(":grayscale");
+            vlcPlayer.MediaPlayer.Play(m);
         }
 
         public ControlWindow()
@@ -150,7 +171,7 @@ namespace _5GDrone
                 while (true)
                 {
                     int time = 500; // 0.5 second
-                    Dispatcher.BeginInvoke(new getContinousCallback(client.getHeight), DispatcherPriority.Render);
+                    //Dispatcher.BeginInvoke(new getContinousCallback(client.getHeight), DispatcherPriority.Render);
                     Dispatcher.BeginInvoke(new getContinousCallback(client.getDistance), DispatcherPriority.Render);
 
                     Thread.Sleep(time);
@@ -224,14 +245,14 @@ namespace _5GDrone
         private void BtnHover_Click(object sender, RoutedEventArgs e)
         {
             msgSend = "HOVER";
-            //client.Transmit(msgSend);
-            MessageBox.Show("Clicked");
+            client.Transmit(msgSend);
+            //MessageBox.Show("Clicked");
         }
 
         private void BtnStop_Click(object sender, RoutedEventArgs e)
         {
             msgSend = "STOP";
-            //client.Transmit(msgSend);
+            client.Transmit(msgSend);
         }
 
 

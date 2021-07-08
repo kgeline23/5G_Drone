@@ -195,6 +195,7 @@ namespace _5GDrone
                 height = Math.Round(temp / lenght, 2);
             }
 
+            /*
             if (height < min)
             {
                 //Transmit("HOVER")
@@ -207,6 +208,10 @@ namespace _5GDrone
             }
             else
                 ctrlWin.changeLableHeight(height + "m \n ");
+            */
+
+            ctrlWin.changeLableHeight(height + "m \n ");
+
         }
 
         //start the ultrasonic sensor, by sending a command and listening for a reponse, reading is in cm
@@ -221,7 +226,7 @@ namespace _5GDrone
             if (receivedDistance <= minDistance)
             {
                 //Transmit("HOVER")
-                ctrlWin.changeLableDistance("Watch out too close!! " + receivedDistance + "cm");
+                ctrlWin.changeLableDistance(receivedDistance + "cm \r\nWatch out too close!!");
             }
             else
                 ctrlWin.changeLableDistance( receivedDistance + "cm");

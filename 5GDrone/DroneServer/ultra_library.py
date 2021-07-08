@@ -6,15 +6,24 @@ import time
 GPIO.setmode(GPIO.BCM)
  
 #set GPIO Pins
-GPIO_TRIGGER = 18
-GPIO_ECHO = 24
+GPIO_TRIGGER = 0
+GPIO_ECHO = 0
  
 #set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
     
-def getUltra():
+def getUltra(ultraNum):
+    if ultraNum = 0:
+        GPIO_TRIGGER= 12
+        GPIO_ECHO= 16
+    elif ultraNum = 1:
+        GPIO_TRIGGER= 18
+        GPIO_ECHO= 24    
+    elif ultraNum = 2:
+        GPIO_TRIGGER= 23
+        GPIO_ECHO= 25   
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
     # set Trigger after 0.01ms to LOW
